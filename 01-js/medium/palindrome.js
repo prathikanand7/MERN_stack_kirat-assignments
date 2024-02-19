@@ -4,7 +4,25 @@
 */
 
 function isPalindrome(str) {
-  return true;
+
+  let lower_str = str.toLowerCase();
+  let final_str = "";
+  
+  // str = str
+  //   .toLowerCase() //Convert it to LowerCase
+  //   .trim() //Remove All Spaces Value
+  //   .replace(/[^a-zA-Z0-9]/g, ""); //Remove All NonAlphaNumeric Value
+
+  for (let i = 0; i < lower_str.length; i++) {
+    if (lower_str[i] >= "a" && lower_str[i] <= "z")
+      final_str += lower_str[i];
+  }
+  let reverse_str = final_str.slice(-final_str.length, 0);
+
+  if (final_str.startsWith(reverse_str) && final_str[0] == final_str[final_str.length - 1])
+    return true;
+  else
+    return false;
 }
 
 module.exports = isPalindrome;
